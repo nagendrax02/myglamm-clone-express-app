@@ -15,7 +15,6 @@ const user_controller = require("./controllers/user.controller");
 app.use("/user", user_controller);
 
 
-
 app.listen(2312, async()=>{
     await connect();
     console.log("listening to port 2312");
