@@ -3,6 +3,10 @@ const path = require("path");
 const app = express();
 app.use(express.json());
 const connect = require("./configs/db");
+app.use(express.static(path.join(__dirname, 'public')));
+
+const PORT = process.env.PORT || 2312;
+
 
 app.set("views", path.join(__dirname), "views");
 
@@ -15,7 +19,7 @@ const user_controller = require("./controllers/user.controller");
 app.use("/user", user_controller);
 
 
-app.listen(2312, async()=>{
+app.listen(PORT, async()=>{
     await connect();
-    console.log("listening to port 2312");
+    console.log(`Server is Running  on http://localhost:${PORT}`);
 });

@@ -16,7 +16,7 @@ router.get("", async(req,res)=>{
         const user = await User.find().lean().exec();
         const page_title = "Welcome to Users page";
 
-        return res.render("views/users/all_users",{
+        return res.render("views/users/index",{
             user: user,
             page_title,
         })
