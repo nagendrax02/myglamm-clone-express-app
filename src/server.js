@@ -9,8 +9,6 @@ app.use(express.json());
 const connect = require("./configs/db");
 app.use(express.static(path.join(__dirname, 'public')));
 
-// const morgan = require('morgan');
-
 
 dotenv.config({path: 'config.env'});
 
@@ -23,13 +21,15 @@ app.set("view engine", "ejs");
 
 
 
+
+
 const user_controller = require("./controllers/user.controller");
+const index_controller = require("./controllers/index.controller");
 
-app.use("/user", user_controller);
+// app.use("/user", user_controller);
+app.use("/", index_controller);
 
-app.get('/', (req,res)=>{
-    res.render("views/index")
-})
+
 
 app.listen(PORT, async()=>{
     await connect();
