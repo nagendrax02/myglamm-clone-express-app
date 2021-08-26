@@ -8,6 +8,8 @@ const app = express();
 app.use(express.json());
 const connect = require("./configs/db");
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/img', express.static(path.join(__dirname, 'public/img')));
+app.use('/css', express.static(path.join(__dirname, 'public/css')));
 
 
 dotenv.config({path: 'config.env'});

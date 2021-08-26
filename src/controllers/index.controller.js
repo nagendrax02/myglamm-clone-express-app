@@ -16,4 +16,10 @@ router.get('/offline-stores', (req,res)=>{
     res.render('views/offline-store')
 })
 
+
+router.get('/refer_earn', (req,res)=>{
+    res.render('views/refer_earn')
+})
+
+
 module.exports = router;
