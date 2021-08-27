@@ -1,5 +1,5 @@
 function open_cart(){
-    location.href = './html/cart.html';
+    location.href = 'views/cart';
 }
 function create_model(){
     let container = document.querySelector('.container');
@@ -93,7 +93,7 @@ function close_login_box(){
      console.log(span)
      span.addEventListener('click', function(){
         modal_div.style.display = 'none';
-        location.href = 'index.html';
+        location.href = '/index';
      });
    
 }
