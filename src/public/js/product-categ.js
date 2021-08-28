@@ -1,84 +1,66 @@
-
 function fun2(value){
-    console.log(value)
-    fetch_prodatauct(value)
+
+    fetch_data(value)
 }
 
 
 
-async function fetch_prodatauct(el){
-    try{
-        
-        let res = await fetch('http://localhost:8080/products-categ');
-        let dataata =await res.json();
-        console.log('----->',dataata)
-        show_prodataucts(dataata)
-    }catch(err){
-        console.log(err);
+function show_skin_products(d) {
+    let skin_products = d;
+    //console.log(skin_products)
+    let div = document.getElementById("skin_display");
+    // skin_products.forEach(function(el) {
+    //     console.log(el)
+    //     append_skin_products(el);
+    // });
+    for(let i=0 ; i<skin_products.length ; i++){
+        console.log(skin_products[i])
+       append_skin_products (skin_products[i]);
     }
 }
-
-//fetch_prodatauct();
-
-// function show_prodataucts(data) {
-//     console.log(data)
-//     let skin_prodataucts = data;
-//     let dataiv = dataocument.getElementByIdata("skin_dataisplay");
-//     dataiv.innerHTML = null;
-//     console.log(dataiv)
-//     skin_prodataucts.forEach(function(el) {
-//         appendata_skin_prodataucts(el);
-//     });
-// }
-
-
-
-function show_prodataucts(data) {
-    let skin_prodataucts = data;
-    console.log(document.getElementById('skin_dataisplay').children[0]);
-   
-   
-    // dataiv.innerHTML = null;
-    skin_prodataucts.forEach(function(el) {
-        appendata_skin_prodataucts(el);
-    });
+async function fetch_data(){
+    let res = await fetch("http://localhost:8080/products-categ");
+    let data = await res.json();
+   // console.log(data)
+    show_skin_products(data)
 }
 
-//show_prodataucts(JSON.parse(localStorage.getItem("skinprodataucts")))
 
-function appendata_skin_prodataucts(el) {
-    let datais_dataiv = dataocument.getElementByIdata('skin_dataisplay');
-    let dataiv = dataocument.createElement("dataiv");
-    let s_image = dataocument.createElement("img");
-    s_image.src = el.image;
-    s_image.adatadataEventListener('click', function () {
-        let selc_pro = el.value;
-        localStorage.setItem("selectedata_prodataucts", JSON.stringify(selc_pro));
-        location.href='selectedata_prodatauct.html'
+// show_skin_products(JSON.parse(localStorage.getItem("skinproducts")))
+
+function append_skin_products(el) {
+    let dis_div = document.getElementById('skin_display');
+    let div = document.createElement("div");
+    let s_image = document.createElement("img");
+    s_image.src = el.Image;
+    s_image.addEventListener('click', function () {
+        let selc_pro = el.Name;
+        localStorage.setItem("selected_products", JSON.stringify(selc_pro));
+        location.href='selected_product.html'
     })
-    let s_value = dataocument.createElement("dataiv");
-    s_value.innerHTML = el.value;
-    s_value.setAttribute("class","skin_text1")
-    let s_dataiscription = dataocument.createElement("dataiv");
-    s_dataiscription = el.dataiscription;
-    //s_dataiscription.setAttribute('class','skin_text3')
-    let s_price = dataocument.createElement("dataiv");
+    let s_name = document.createElement("div");
+    s_name.innerHTML = el.Name;
+    s_name.setAttribute("class","skin_text1")
+    let s_discription = document.createElement("div");
+    s_discription = el.Discription;
+    //s_discription.setAttribute('class','skin_text3')
+    let s_price = document.createElement("div");
     s_price.style = 'margin-left:120px'
-    s_price.innerHTML = ` ₹ ${el.price}`;
+    s_price.innerHTML = ` ₹ ${el.Price}`;
     s_price.setAttribute("class", "skin_text2");
-    let s_btn = dataocument.createElement("button");
-    s_btn.style = 'backgroundata-color:black;color:white'
-    s_btn.innerText = "Adatadata to cart";
-    s_btn.setAttribute("class", "adatadata_to_cart_btn");
-    s_btn.adatadataEventListener('click', function () {
-        adatadatatocart(el);
+    let s_btn = document.createElement("button");
+    s_btn.style = 'background-color:black;color:white'
+    s_btn.innerText = "Add to cart";
+    s_btn.setAttribute("class", "add_to_cart_btn");
+    s_btn.addEventListener('click', function () {
+        addtocart(el);
     })
-    dataiv.appendata(s_image, s_value, s_dataiscription, s_price, s_btn);
-    datais_dataiv.appendata(dataiv);
+    div.append(s_image, s_name, s_discription, s_price, s_btn);
+    dis_div.append(div);
 }
 
 
-function adatadatatocart(el) {
+function addtocart(el) {
     let arr;
     arr = localStorage.getItem('cart');
     if (arr == null) {
