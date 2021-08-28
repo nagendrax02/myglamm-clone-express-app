@@ -1,5 +1,6 @@
 function open_cart(){
-    location.href = 'views/cart';
+  
+   location.href = 'views/cart';
 }
 function create_model(){
     let container = document.querySelector('.container');
@@ -11,8 +12,12 @@ function create_model(){
     let modal_content_div = document.createElement('div');
     modal_content_div.setAttribute('class','model-content')
 
+
+
+    //modal for login
+
     modal_content_div.innerHTML = `
-    
+    <form action=>
     <div class="container">
         <div class="sign-up-box">
         <span id="close" class="close">&times;</span>
@@ -26,7 +31,7 @@ function create_model(){
         <hr class="black-row">
         <hr class="horizontal-row">
         <div class="input-number">
-            <form action="" id="cont-code">
+            
             <div class="select-country">
                 <fieldset><legend class="leg-text">COUNTRY CODE</legend>
                     <select name="country" id="sel-cont">
@@ -39,7 +44,6 @@ function create_model(){
                     </select></fieldset>
                 
             </div>
-            </form>
             
             <div class='phone-number'>
                 <fieldset><legend class="leg-text">*MOBILE NUMBER</legend><input type="number" class="input-number" id="number"></fieldset>
@@ -65,6 +69,7 @@ function create_model(){
         <p>By signing up you agree to our <a href="" style="text-decoration: none; color: black;"><b> Terms & Conditions</b> </a> </p>
     </div>
 </div>
+</form>
     
     
     
@@ -194,4 +199,18 @@ function create_user_detail_modal(){
     modal_div.append(modal_content_div);
     container.append(modal_div);
     close_login_box();
+}
+
+
+
+function category(el){
+    let cat = el.children[2];
+   var  diff=cat.children[0].textContent;
+    var name = diff
+    // makerequest(diff);
+    //export default cat1;
+    // console.log(name)
+    fun2(name);
+    // makerequest(diff);
+    // console.log(diff)
 }

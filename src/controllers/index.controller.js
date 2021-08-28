@@ -27,5 +27,9 @@ router.get('/refer_earn', (req,res)=>{
     res.render('views/refer_earn')
 })
 
+router.get('/category_product', (req,res)=>{
+    res.render('views/products-categ');
+})
+
 
 module.exports = router;

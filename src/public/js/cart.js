@@ -1,5 +1,7 @@
 function add_product_to_cart(el){
-    let prod = JSON.parse(localStorage.getItem('cart'));
+    // let prod = JSON.parse(localStorage.getItem('cart'));
+
+    
     let count = 0;
     prod.forEach(function(){
         count++;

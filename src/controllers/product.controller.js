@@ -11,10 +11,20 @@ router.post("", async(req,res)=>{
     }
 });
 
-router.get("", async(req,res)=>{
+router.get("/products", async(req,res)=>{
+    try{
+        const product = await Product.find({category: 'Skin'}).lean().exec();
+        return res.render('views/products-categ',{
+            product : product
+        })
+    }catch(err){
+        return res.status(400).send(err.message);
+    }
+})
+router.get("/products-categ", async(req,res)=>{
     try{
         const product = await Product.find().lean().exec();
-        return res.send(product)
+        return res.send(product);
     }catch(err){
         return res.status(400).send(err.message);
     }

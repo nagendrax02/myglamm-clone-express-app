@@ -11,7 +11,7 @@ router.post("", async(req,res)=>{
     }
 });
 
-router.get("", async(req,res)=>{
+router.get("/cart", async(req,res)=>{
     try{
         const cart  = await Cart.find().lean().exec();
         return res.send(cart)
