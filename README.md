@@ -32,7 +32,7 @@ You can make payment using your card and can place the order.
 Clone the project
 
 ```bash
-  git clone https://github.com/nagendrax02/myglamm-clone.git
+  git clone https://github.com/nagendrax02/myglamm-clone-express-app.git
 ```
 
 Go to the project directory
