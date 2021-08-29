@@ -41,13 +41,20 @@ Go to the project directory
   cd my-project
 ```
 
-Install dependencies
+Install express
+```bash
+   npm i express
+```
+
+
+
+
+Install other dependencies
 
 ```bash
-  npm install express
-  npm install express @mongoose@5.11.15
-  npm install path
-  npm install body parser
+  npm i express @mongoose@5.11.15
+  npm i path
+  npm i body parser
 ```
 
 Start the server
