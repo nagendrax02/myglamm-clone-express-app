@@ -79,5 +79,7 @@
     text-align: center;
 }
 
-
+.cart-body img{
+    margin-left: 18%;
+}
 /* cart.html end */

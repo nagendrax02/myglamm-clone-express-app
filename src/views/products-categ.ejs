@@ -17,7 +17,20 @@
         <div class="skinhead">
             <div class="skinhead_text">SKIN CARE</div>
         </div>
-        <div id="skin_display"><h1>guru</h1></div>
+        <div id="skin_display">
+
+            <% for(let i=0 ; i<products.length ; i++){ %>
+
+            <div>
+                <img src="<%= products[i].image %>" alt="" onclick="" class="prod-image">
+                <div class="prod-name skin_text1"><%= products[i].name %></div>
+                <div class="prod-description"><%= products[i].discription %> </div>
+                <div style="margin-left: 120px;" class="prod-price skin_text2"><%= products[i].price %></div>
+                <button style="background-color: black; color: white;" class="add_to_cart_btn" onclick="addtocart()">Add to cart</button>
+                
+            </div>
+            <% }%>
+        </div>
 
 
 
@@ -170,8 +183,3 @@
     </body>
 </html>
 <script src="/js/product-categ.js"></script>
-
-
-
-
-

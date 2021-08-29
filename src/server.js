@@ -2,7 +2,7 @@ const express = require("express")
 const path = require("path");
 
 const dotenv = require('dotenv');
-
+const bodyParser = require('body-parser');
 
 const app = express();
 app.use(express.json());
@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/img', express.static(path.join(__dirname, 'public/img')));
 app.use('/css', express.static(path.join(__dirname, 'public/css')));
 app.use('/js', express.static(path.join(__dirname, 'public/js')));
-
+app.use(bodyParser.urlencoded({ extended: false }));
 
 dotenv.config({path: 'config.env'});
 

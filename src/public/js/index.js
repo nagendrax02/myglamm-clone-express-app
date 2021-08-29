@@ -17,7 +17,7 @@ function create_model(){
     //modal for login
 
     modal_content_div.innerHTML = `
-    <form action=>
+    <form action= "/post_user" method="post>
     <div class="container">
         <div class="sign-up-box">
         <span id="close" class="close">&times;</span>
@@ -46,13 +46,13 @@ function create_model(){
             </div>
             
             <div class='phone-number'>
-                <fieldset><legend class="leg-text">*MOBILE NUMBER</legend><input type="number" class="input-number" id="number"></fieldset>
+                <fieldset><legend class="leg-text">*MOBILE NUMBER</legend><input type="number" class="input-number" id="number" name="phone_number"></fieldset>
                 
             </div>
         </div>
 
         <div class="button-div">
-            <button class="button" onclick="generator()">CONTINUE</button>
+            <input type="submit" value="Continue" name="submit" onclick="/validate" class="button">
         </div>
         <div class="hr-line">
             <p><span>or continue with</span></p>

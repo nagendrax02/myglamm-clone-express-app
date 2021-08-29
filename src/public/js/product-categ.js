@@ -4,25 +4,24 @@ function fun2(value){
 }
 
 
-
-function show_skin_products(d) {
-    let skin_products = d;
-    //console.log(skin_products)
-    let div = document.getElementById("skin_display");
-    // skin_products.forEach(function(el) {
-    //     console.log(el)
-    //     append_skin_products(el);
-    // });
-    for(let i=0 ; i<skin_products.length ; i++){
-        console.log(skin_products[i])
-       append_skin_products (skin_products[i]);
-    }
-}
 async function fetch_data(){
     let res = await fetch("http://localhost:8080/products-categ");
     let data = await res.json();
    // console.log(data)
     show_skin_products(data)
+}
+
+
+
+function show_skin_products(d) {
+    let skin_products = d;
+    
+    let div = document.getElementById("skin_display");
+    
+    for(let i=0 ; i<skin_products.length ; i++){
+        console.log(skin_products[i])
+       append_skin_products (skin_products[i]);
+    }
 }
 
 
