@@ -2,10 +2,18 @@ const express = require("express");
 const router = express.Router();
 const Login = require("../models/login.model");
 
-router.post("", async(req,res)=>{
+router.post("/get-user", async(req,res)=>{
     try{
-        const login = await Login.create(req.body);
-        return res.status(200).send(login);
+      //  const login = await Login.create(req.body);
+      let user_phone_number = req.body.phone_number;
+      router.get("", async(req,res)=>{
+        try{
+            const login  = await Login.find().lean().exec();
+           console.log(login)
+        }catch(err){
+            return res.status(400).send(err.message);
+        }
+    })
     }catch(err){
         return res.status(400).send(err.message);
     }
@@ -14,7 +22,7 @@ router.post("", async(req,res)=>{
 router.get("", async(req,res)=>{
     try{
         const login  = await Login.find().lean().exec();
-        return res.send(login)
+        return res.send(req.phone_number)
     }catch(err){
         return res.status(400).send(err.message);
     }
