@@ -1,7 +1,7 @@
 const express = require("express")
 const path = require("path");
 
-const dotenv = require('dotenv');
+
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -13,7 +13,7 @@ app.use('/css', express.static(path.join(__dirname, 'public/css')));
 app.use('/js', express.static(path.join(__dirname, 'public/js')));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-dotenv.config({path: 'config.env'});
+
 
 const PORT = process.env.PORT || 8080;
 
